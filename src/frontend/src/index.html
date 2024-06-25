@@ -15,7 +15,7 @@
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <h1 class="navbar-brand titulo">LIBRERIA</h1>
+                <a class="navbar-brand titulo">LIBRERIA</a>
                 <button class="navbar-toggler btnColor" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -24,11 +24,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.html">Lista</a>
+                            <a class="nav-link" href="index.html">Lista</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
                                 Opciones
                             </a>
                             <ul class="dropdown-menu">
@@ -48,6 +47,11 @@
 
 
     <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-5 mb-2">
+                <h2 class="text-center h1Size">Listado de libros disponibles</h2>
+            </div>
+        </div>
         <div class="row my-1">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                 <table class="table text-center table-striped">
@@ -60,24 +64,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Titulo</td>
-                            <td>Autor</td>
-                            <td>Genero</td>
-                            <td><button type="button" class="btn btn-danger" id="btnEliminar">Eliminar</button></td>
-                        </tr>
-                        <tr>
-                            <td>Titulo</td>
-                            <td>Autor</td>
-                            <td>Genero</td>
-                            <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                        </tr>
-                        <tr>
-                            <td>Titulo</td>
-                            <td>Autor</td>
-                            <td>Genero</td>
-                            <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                        </tr>
+                        
                     </tbody>
                 </table>
             </div>
@@ -95,6 +82,9 @@
         integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/listado/listadoService.js"></script>
+
+
 </body>
 
 </html>

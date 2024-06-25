@@ -17,8 +17,8 @@
             <div class="container-fluid">
                 <h1 class="navbar-brand titulo">LIBRERIA</h1>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -32,8 +32,12 @@
                                 Opciones
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="nuevoLibro.html"> <img width="24" height="24" src="https://img.icons8.com/material-outlined/24/add.png" alt="add"/> Nuevo Libro</a></li>
-                                <li><a class="dropdown-item" href="actualizarLibro.html"> <img width="24" height="24" src="https://img.icons8.com/pastel-glyph/64/loop.png" alt="loop"/>Actualizar Libro</a></li>
+                                <li><a class="dropdown-item" href="nuevoLibro.html"> <img width="24" height="24"
+                                            src="https://img.icons8.com/material-outlined/24/add.png" alt="add" /> Nuevo
+                                        Libro</a></li>
+                                <li><a class="dropdown-item" href="actualizarLibro.html"> <img width="24" height="24"
+                                            src="https://img.icons8.com/pastel-glyph/64/loop.png"
+                                            alt="loop" />Actualizar Libro</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -41,21 +45,47 @@
             </div>
         </nav>
     </header>
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
-                <h1 class="my-2">Nuevo Libro</h1>
-            </div> 
-        </div>
-        <div class="row">
-            <div class="form">
-                <div class="col-xl-6">
-                    
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-xs-12">
+                    <h1 class="my-2 h1Size">Nuevo Libro</h1>
+                </div>
+            </div>
+            <form class="form" id="formNuevoLibro">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-xs-6 my-2">
+                        <input type="text" class="form-control" id="idISBN" placeholder="Ingresar ISBN" name="isbn">
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-xs-6 my-2">
+                        <input type="text" class="form-control" id="idTitulo" placeholder="Titulo del libro" name="titulo">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-xs-6 my-2">
+                        <input type="text" class="form-control" id="idAutor" placeholder="Autor" name="autor">
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-xs-6 my-2">
+                        <input type="text" class="form-control" id="idGenero" placeholder="Genero del libro" name="genero">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-xs-6 my-2">
+                        <input type="date" class="form-control" id="idFechaPublicacion" placeholder="Fecha de Publicacion" name="fechaPublicacion">
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-xs-12 my-2">
+                    <div class="d-grid gap-2 col-4 mx-auto">
+                        <button class="btn btn-success" type="button" id="btnRegistrar">Registrar</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    
 
 
 
@@ -64,10 +94,10 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"
-        integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.20.1/dist/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/nuevoLibro/nuevoLibroService.js"></script>
+
 </body>
 
 </html>

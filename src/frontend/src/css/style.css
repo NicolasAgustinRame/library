@@ -5,17 +5,20 @@
     --font-nav: #fffbf4;
     --gris: #e2e2e2;
     --blanco: #ffffff;
+    --verde-agua: #157e9b;
+    --verde-agua-oscuro: #146188;
 }
 
 nav {
     font-family: 'Nunito', sans-serif;
     font-size: 26px;
-    background-color: var(--violeta-gris-oscuro);
+    background-color: var(--verde-agua);
+    box-shadow:  0 10px 15px rgba(0, 0, 0,0.2);
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--violeta-gris);
+    background-color: var(--verde-agua-oscuro);
     color: var(--blanco);
 }
 
@@ -30,7 +33,6 @@ body {
 .nav-link {
     color: var(--font-nav);
 }
-
 
 .nav-link:hover {
     color: var(--gris);
@@ -61,4 +63,8 @@ th {
 
 td {
     font-size: 18px;
+}
+
+.h1Size {
+    font-size: 40px;
 }
