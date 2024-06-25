@@ -1,6 +1,7 @@
 ﻿using Api_Library.Interfaces;
 using Api_Library.Repository.Autor;
 using Api_Library.Repository.Genero;
+using Api_Library.Repository.Libros;
 
 namespace Api_Library;
 
@@ -10,6 +11,7 @@ public static class ConfigServiceCollectionExtensions
     {
         services.AddScoped<IAutorRepository, AutorRepository>();
         services.AddScoped<IGeneroRepository, GeneroRepository>();
+        services.AddScoped<ILibrosRepository, LibroRepository>();
         
         return services;
     }
