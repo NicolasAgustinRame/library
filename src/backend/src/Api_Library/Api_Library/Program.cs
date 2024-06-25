@@ -16,6 +16,16 @@ builder.Services.AddDbContext<ContextDb>(options =>
 });
 builder.Services.AddAutoMapper(typeof(MapppingProfile));
 builder.Services.AddMyDependecyGroup();
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyHeader()
+            .AllowAnyOrigin()
+            .AllowAnyMethod();
+    });
+});
+
 
 var app = builder.Build();
 
@@ -26,6 +36,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors();
 app.UseHttpsRedirection();
 app.MapControllers();
 app.Run();
