@@ -1,3 +1,8 @@
+using Api_Library;
+using Api_Library.Data;
+using Api_Library.Mappings;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
@@ -5,6 +10,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<ContextDb>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConexionDb"));
+});
+builder.Services.AddAutoMapper(typeof(MapppingProfile));
+builder.Services.AddMyDependecyGroup();
 
 var app = builder.Build();
 
