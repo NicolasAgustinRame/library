@@ -22,12 +22,12 @@ public class LibroRepository : ILibrosRepository
         return libros;  
     }
 
-    public async Task<Model.Libros> GetById(Guid id)
+    public async Task<Model.Libros> GetById(Guid ISBN)
     {
         var libro = await _contextDb.Libros
             .Include(l => l.Genero)
             .Include(l => l.Autor)
-            .FirstOrDefaultAsync(l => l.ISBN == id);
+            .FirstOrDefaultAsync(l => l.ISBN == ISBN);
         return libro;
     }
 
@@ -45,6 +45,9 @@ public class LibroRepository : ILibrosRepository
             .Include(l => l.Autor)
             .FirstOrDefaultAsync(l => l.ISBN == updateLibro.ISBN);
 
+        libro.Titulo = updateLibro.Titulo;
+        libro.FechaDePublicacion = updateLibro.FechaDePublicacion;
+        
         _contextDb.Update(libro);
         _contextDb.SaveChanges();
         return libro;
