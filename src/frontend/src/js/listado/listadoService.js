@@ -17,7 +17,8 @@ function listarLibros() {
                 fila.innerHTML += `<td>${libro.titulo}</td>`
                 fila.innerHTML += `<td>${libro.autor.nombre}</td>`
                 fila.innerHTML += `<td>${libro.genero.nombre}</td>`
-                fila.innerHTML += `<td><button type="button" class="btn btn-danger" id="btnEliminar">Eliminar</button></td>`
+                fila.innerHTML += `<td><button type="button" class="btn btn-danger" id="btnEliminar" onclick="eliminarLibro('${libro.isbn}')">Eliminar</button></td>`
+                
                 cuerpoTabla.append(fila)
             });
         }
@@ -26,3 +27,28 @@ function listarLibros() {
     })
 }
 
+function eliminarLibro(isbn) {
+    const url = `https://localhost:44320/libros/DeleteLibro/${isbn}`
+
+    fetch(url, {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(response => {
+        if(response.success){
+            Swal.fire({
+                icon: "success",
+                title: "Libro eliminado",
+                showConfirmButton: false,
+                timer: 1800
+            });
+            setTimeout(() => location.reload(), 3000)
+        }
+        else {
+            console.log(responsel.errorMessage)
+        }
+    })
+    .catch(error => {
+        console.log(error)
+    })
+} 
