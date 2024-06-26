@@ -12,6 +12,8 @@ function listarLibros() {
         }
         else {
             const cuerpoTabla = document.querySelector("tbody")
+            response.data.sort((a,b) => a.autor.nombre.localeCompare(b.autor.nombre))
+
             response.data.forEach(libro => {
                 const fila = document.createElement("tr")
                 fila.innerHTML += `<td>${libro.titulo}</td>`
@@ -42,7 +44,7 @@ function eliminarLibro(isbn) {
                 showConfirmButton: false,
                 timer: 1800
             });
-            setTimeout(() => location.reload(), 3000)
+            setTimeout(() => location.reload(), 2200)
         }
         else {
             console.log(responsel.errorMessage)
