@@ -68,3 +68,7 @@ td {
 .h1Size {
     font-size: 40px;
 }
+
+.modal-title {
+    color: #000000;
+}

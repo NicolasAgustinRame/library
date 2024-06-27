@@ -4,7 +4,8 @@ $(document).ready(function() {
 
 function listarLibros() {
     const url = 'https://localhost:44320/libros/GetAll'
-    fetch(url)
+    const token = localStorage.getItem("token")
+    fetch(url, {headers: {Authorization: `Bearer ${token}`}})
     .then(response => response.json())
     .then((response) => {
         if(!response.success){
@@ -31,9 +32,13 @@ function listarLibros() {
 
 function eliminarLibro(isbn) {
     const url = `https://localhost:44320/libros/DeleteLibro/${isbn}`
+    const token = localStorage.getItem("token")
 
     fetch(url, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${token}`,
+        }
     })
     .then(response => response.json())
     .then(response => {

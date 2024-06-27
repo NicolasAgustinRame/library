@@ -42,10 +42,12 @@ function actualizarLibro() {
     const isbn = $('#idISBN').val()
     const titulo = $('#idTitulo').val()
     const fecha = $('#idFechaPublicacion').val()
+    const token = localStorage.getItem("token")
 
     fetch(url, {
         method: 'PUT',
         headers: {
+            Authorization: `Bearer ${token}`,
             "Content-Type": "application/json"
         },
         body: JSON.stringify({

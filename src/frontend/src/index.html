@@ -40,11 +40,31 @@
                             </ul>
                         </li>
                     </ul>
+                    <button class="btn btn-danger" type="button" id="idLoginOut">Login-Out</button>
                 </div>
             </div>
         </nav>
     </header>
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="formLogin">
+                        <input type="text" class="form-control my-2" id="idEmail" placeholder="Email" name="email">
+                        <input type="password" class="form-control my-2" id="idPassword" placeholder="Password" name="password">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnIngresar">Ingresar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
         <div class="row">
@@ -64,7 +84,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -82,6 +102,7 @@
         integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/listado/loginService.js"></script>
     <script src="js/listado/listadoService.js"></script>
 
 
