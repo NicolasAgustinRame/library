@@ -9,7 +9,11 @@ public class MapppingProfile : Profile
     public MapppingProfile()
     {
         CreateMap<Autor, AutorDto>();
+        
         CreateMap<Genero, GeneroDto>();
+        
         CreateMap<Libros, LibroDto>();
+
+        CreateMap<Usuarios, UsuarioDto>();
     }
 }
