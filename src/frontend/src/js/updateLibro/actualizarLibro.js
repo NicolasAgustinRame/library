@@ -13,7 +13,7 @@ function buscarLibro() {
     const isbnLibro = $('#idISBN').val()
     const url = `https://localhost:44320/libros/GetById/${isbnLibro}`
 
-    fetch(url)
+    fetch(url, {headers: {Authorization: `Bearer ${token}`}})
     .then(response => response.json())
     .then(response => {
         if(!response.success){

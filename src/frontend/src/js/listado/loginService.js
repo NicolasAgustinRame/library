@@ -3,7 +3,13 @@ $(document).ready(function(){
         backdrop: 'static', // Makes background non-clickable
         keyboard: false // Disables closing modal with keyboard
     });
-    modal.show();
+
+    const token = localStorage.getItem("token")
+
+    if (!token) {
+        modal.show();
+    }
+
 
     $('#formLogin').validate({
         rules: {
