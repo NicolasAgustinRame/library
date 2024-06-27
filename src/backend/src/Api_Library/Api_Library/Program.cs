@@ -2,6 +2,10 @@ using System.Text;
 using Api_Library;
 using Api_Library.Data;
 using Api_Library.Mappings;
+using Api_Library.Model;
+using Api_Library.Query;
+using Api_Library.Validations.ValidationsLibros;
+using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -69,6 +73,7 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddScoped<IValidator<NewLibroQuery>, PostLibroValidation>();
 
 var app = builder.Build();
 

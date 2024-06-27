@@ -138,3 +138,6 @@ E:\WORKSPACE NICO\library\src\backend\src\Api_Library\Api_Library\obj\Debug\net8
 E:\WORKSPACE NICO\library\src\backend\src\Api_Library\Api_Library\obj\Debug\net8.0\Api_Library.pdb
 E:\WORKSPACE NICO\library\src\backend\src\Api_Library\Api_Library\obj\Debug\net8.0\Api_Library.genruntimeconfig.cache
 E:\WORKSPACE NICO\library\src\backend\src\Api_Library\Api_Library\obj\Debug\net8.0\ref\Api_Library.dll
+E:\WORKSPACE NICO\library\src\backend\src\Api_Library\Api_Library\bin\Debug\net8.0\FluentValidation.dll
+E:\WORKSPACE NICO\library\src\backend\src\Api_Library\Api_Library\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+E:\WORKSPACE NICO\library\src\backend\src\Api_Library\Api_Library\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

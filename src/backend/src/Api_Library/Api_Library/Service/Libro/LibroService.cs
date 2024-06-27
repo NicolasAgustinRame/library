@@ -6,6 +6,7 @@ using Api_Library.Model;
 using Api_Library.Query;
 using Api_Library.Response;
 using AutoMapper;
+using FluentValidation;
 
 namespace Api_Library.Service.Libro;
 
@@ -15,13 +16,16 @@ public class LibroService : ILibrosService
     private readonly IAutorRepository _autorRepository;
     private readonly IGeneroRepository _generoRepository;
     private readonly IMapper _mapper;
+    private readonly IValidator<NewLibroQuery> _validator;
 
-    public LibroService(ILibrosRepository librosRepository, IMapper mapper, IAutorRepository autorRepository, IGeneroRepository generoRepository)
+    public LibroService(ILibrosRepository librosRepository, IMapper mapper, IAutorRepository autorRepository, IGeneroRepository generoRepository,
+        IValidator<NewLibroQuery> validator)
     {
         _librosRepository = librosRepository;
         _mapper = mapper;
         _autorRepository = autorRepository;
         _generoRepository = generoRepository;
+        _validator = validator;
     }
     
     public async Task<ApiResponse<List<LibroDto>>> GetAll()
@@ -54,12 +58,13 @@ public class LibroService : ILibrosService
     public async Task<ApiResponse<LibroDto>> PostLibro(NewLibroQuery newLibroQuery)
     {
         var response = new ApiResponse<LibroDto>();
-        if (newLibroQuery.Titulo == "" || newLibroQuery.Genero.ToString() == "" || newLibroQuery.Autor.ToString() == "" || newLibroQuery.FechaDePublicacion.ToString() == "")
+        var validation = await _validator.ValidateAsync(newLibroQuery);
+        if (!validation.IsValid)
         {
-            response.SetError("Todos los campos son necesarios", HttpStatusCode.BadRequest);
+            response.SetError(string.Join(", ", validation.Errors.Select(e => e.ErrorMessage)), HttpStatusCode.BadRequest);
             return response;
         }
-
+        
         var exist = await _librosRepository.GetById(newLibroQuery.ISBN);
         if (exist != null)
         {
@@ -80,7 +85,7 @@ public class LibroService : ILibrosService
             response.SetError("El autor no existe", HttpStatusCode.BadRequest);
             return response;
         }
-
+        
         var nuevoLibro = new Libros()
         {
             ISBN = newLibroQuery.ISBN,
@@ -89,7 +94,7 @@ public class LibroService : ILibrosService
             Genero = genero,
             FechaDePublicacion = newLibroQuery.FechaDePublicacion
         };
-
+        
         nuevoLibro = await _librosRepository.PostLibros(nuevoLibro);
         response.Data = _mapper.Map<LibroDto>(nuevoLibro);
         return response;
