@@ -8,7 +8,7 @@ function listarLibros() {
     .then(response => response.json())
     .then((response) => {
         if(!response.success){
-            alert('Error al consumir la api')
+            console.log(response.errorMessage)
         }
         else {
             const cuerpoTabla = document.querySelector("tbody")
@@ -25,7 +25,7 @@ function listarLibros() {
             });
         }
     }).catch(err => {
-        alert("Algo salio mal " + err)
+        console.log(err)
     })
 }
 
